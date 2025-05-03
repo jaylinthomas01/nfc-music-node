@@ -16,31 +16,31 @@ I wanted to make my smart home a little smarter. Inspired by the idea of walking
 
 ## 🛠 Tech Stack
 
-- **ESP32** microcontroller
-- **PN532** NFC reader
-- **ESPHome** (or Arduino/C++)
-- **Google Home** speaker (connected via Spotify)
-- Optional: **Home Assistant** for deeper automation
+- **ESP32** microcontroller  
+- **PN532** NFC reader  
+- **Arduino IDE** (or PlatformIO)  
+- **Google Home** speaker  
+- Optional: **Home Assistant** integration  
 
 ## 🧩 Features
 
-- 🎵 Plays different playlists based on tag UID
-- 📓 Logs unknown tags to serial monitor or file
-- 🗃 Configurable YAML/JSON playlist map
-- 🔒 Locally controlled—no sketchy cloud stuff
+- 🎵 Plays different playlists based on tag UID  
+- 📓 Logs unknown tags to serial monitor  
+- 🗃 Easy-to-edit playlist map in code  
+- 🔒 No cloud dependencies
 
 ## 📸 Demo
 
-*(Insert short GIF or photo of tag triggering playlist)*
+*(Insert a photo or GIF here once you take one!)*
 
 ## 🧪 How To Use
 
 1. Flash the ESP32 with the code inside `code/`
-2. Connect the PN532 to the ESP32 (see wiring diagram)
-3. Power it up and open serial monitor
-4. Tap a tag → get a log of the UID
-5. Add that UID to your `playlist_map` config
-6. Enjoy instant vibes™
+2. Connect the PN532 to the ESP32 (wiring diagram coming soon)
+3. Power it up and open the serial monitor
+4. Tap an NFC tag → UID appears in the log
+5. Add that UID to your playlist config
+6. Vibes acquired 🎧
 
 ## 🧾 Example Playlist Config (pseudo-code)
 

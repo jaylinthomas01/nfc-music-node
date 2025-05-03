@@ -4,45 +4,62 @@ Trigger Spotify playlists using NFC tags, an ESP32, and a PN532 reader—because
 
 ## ✨ What It Does
 
-- Tap an NFC tag to instantly play a Spotify playlist via Google Home
-- Auto-logs unknown NFC tags for easy configuration
-- Designed for local offline logic with minimal dependencies
+- Tap an NFC tag to instantly play a Spotify playlist on your Google Home speaker
+- Auto-logs unknown NFC tags to help you easily add new ones
+- Designed to be offline and local-first—no cloud nonsense or data leaks
 
 ## 🧠 Why I Built This
 
-I wanted to make my smart home a little smarter. Inspired by the idea of walking into a room and tapping a tag to change the vibe, this project lets me control music with simple objects.
+I wanted my home to respond like a scene change: walk in, tap something, and the vibe flips. This project lets me trigger music with physical tags—something about that blend of digital + tactile just *feels* right.
 
-
+It also gave me a way to explore ESP32 programming, smart speaker control, and NFC tech—without relying on janky apps or subscriptions.
 
 ## 🛠 Tech Stack
 
-- **ESP32** microcontroller  
-- **PN532** NFC reader  
-- **Arduino IDE** (or PlatformIO)  
-- **Google Home** speaker  
-- Optional: **Home Assistant** integration  
+- **ESP32-WROOM** microcontroller  
+- **PN532** NFC module (I2C mode)  
+- **Arduino IDE** (for flashing)  
+- **Google Home** speaker (linked to Spotify)  
+- **ESPHome** *(optional if you go YAML instead of C++)*
 
 ## 🧩 Features
 
-- 🎵 Plays different playlists based on tag UID  
-- 📓 Logs unknown tags to serial monitor  
-- 🗃 Easy-to-edit playlist map in code  
-- 🔒 No cloud dependencies
+- 🎵 Instant playlist triggering via NFC tag UID
+- 🧠 Smart fallback: unknown tags get logged for easy assignment
+- ⚡ Fast boot time, local control, no Wi-Fi streaming delays
+- 🧘 Built for home vibes, party shifts, and subtle flexes
 
 ## 📸 Demo
 
-*(Insert a photo or GIF here once you take one!)*
+![Demo GIF placeholder]
+
+_Imagine tapping a coaster and the room turns into a lo-fi lounge._
 
 ## 🧪 How To Use
 
-1. Flash the ESP32 with the code inside `code/`
-2. Connect the PN532 to the ESP32 (wiring diagram coming soon)
-3. Power it up and open the serial monitor
-4. Tap an NFC tag → UID appears in the log
-5. Add that UID to your playlist config
-6. Vibes acquired 🎧
+1. Wire your ESP32 to the PN532 (see diagram below)
+2. Open `code/main.ino` in Arduino IDE
+3. Flash to your ESP32
+4. Tap a tag, watch the UID appear in Serial Monitor
+5. Add that UID to your playlist map
+6. Done. You’re a DJ now.
 
-## 🧾 Example Playlist Config (pseudo-code)
+---
+
+## 🧰 Wiring Diagram
+
+| PN532 Pin | ESP32 Pin |
+|-----------|-----------|
+| VCC       | 3.3V      |
+| GND       | GND       |
+| SDA       | GPIO 21   |
+| SCL       | GPIO 22   |
+
+> 📌 I’m using I2C mode. If you’re using UART/SPI, wiring will differ.
+
+---
+
+## 🧾 Playlist Map Snippet
 
 ```cpp
 std::map<String, String> playlistMap = {

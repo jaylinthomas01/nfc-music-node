@@ -52,8 +52,12 @@ _Imagine tapping a coaster and the room turns into a lo-fi lounge._
 |-----------|-----------|
 | VCC       | 3.3V      |
 | GND       | GND       |
-| SDA       | GPIO 21   |
-| SCL       | GPIO 22   |
+| SDA       | D21 (GPIO 21) |
+| SCL       | D22 (GPIO 22) |
+
+> ⚠️ Note: On the ESP32 board I used, the pins are labeled `D21` and `D22`.  
+> 📌 Also, my PN532 reader came with a sticker covering the DIP switch. You'll need to peel it off and flip the switches to I2C mode (usually both switches ON or OFF, depending on your board).
+
 
 > 📌 I’m using I2C mode. If you’re using UART/SPI, wiring will differ.
 
